@@ -3,7 +3,6 @@ import {
   Input,
   Modal,
   Radio,
-  Space,
   Table,
   Tabs,
   Upload,
@@ -87,18 +86,21 @@ export default function NewSupplierDialog({
       dataIndex: "name",
       key: "name",
       render: (text: string) => (
-        <Space>
+        <div className="flex w-full gap-2">
           <span className="inline-block w-5 text-center font-bold">
             {text === "Head Office" ? "🏢" : "🏬"}
           </span>
-          <span>{text}</span>
-        </Space>
+          <Input defaultValue={text} size="small" className="flex-1" />
+        </div>
       ),
     },
     {
       title: "Address",
       dataIndex: "address",
       key: "address",
+      render: (text: string) => (
+        <Input defaultValue={text} size="small" className="w-full" />
+      ),
     },
     {
       title: "Main",
@@ -115,18 +117,46 @@ export default function NewSupplierDialog({
 
   const contactsColumns = [
     { title: "#", dataIndex: "key", key: "key", width: 40 },
-    { title: "Name", dataIndex: "name", key: "name" },
-    { title: "Job Position", dataIndex: "job", key: "job" },
+    {
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
+      render: (text: string) => (
+        <Input defaultValue={text} size="small" className="w-24" />
+      ),
+    },
+    {
+      title: "Job Position",
+      dataIndex: "job",
+      key: "job",
+      render: (text: string) => (
+        <Input defaultValue={text} size="small" className="w-24" />
+      ),
+    },
     {
       title: "Email",
       dataIndex: "email",
       key: "email",
       render: (email: string) => (
-        <span className="whitespace-pre-line">{email}</span>
+        <Input defaultValue={email} size="small" className="w-32" />
       ),
     },
-    { title: "Phone", dataIndex: "phone", key: "phone" },
-    { title: "Mobile", dataIndex: "mobile", key: "mobile" },
+    {
+      title: "Phone",
+      dataIndex: "phone",
+      key: "phone",
+      render: (text: string) => (
+        <Input defaultValue={text} size="small" className="w-24" />
+      ),
+    },
+    {
+      title: "Mobile",
+      dataIndex: "mobile",
+      key: "mobile",
+      render: (text: string) => (
+        <Input defaultValue={text} size="small" className="w-24" />
+      ),
+    },
     {
       title: "Main",
       key: "main",
@@ -142,8 +172,22 @@ export default function NewSupplierDialog({
 
   const groupsColumns = [
     { title: "#", dataIndex: "key", key: "key", width: 40 },
-    { title: "Group Name", dataIndex: "name", key: "name" },
-    { title: "Value", dataIndex: "value", key: "value" },
+    {
+      title: "Group Name",
+      dataIndex: "name",
+      key: "name",
+      render: (text: string) => (
+        <Input defaultValue={text} size="small" className="w-full" />
+      ),
+    },
+    {
+      title: "Value",
+      dataIndex: "value",
+      key: "value",
+      render: (text: string) => (
+        <Input defaultValue={text} size="small" className="w-full" />
+      ),
+    },
     {
       title: "Active",
       key: "active",
@@ -199,7 +243,7 @@ export default function NewSupplierDialog({
       title="New Supplier"
       onCancel={onCancel}
       footer={null}
-      width={600}
+      width={700}
       centered
       classNames={{
         body: "pb-0",
