@@ -19,11 +19,9 @@ Anda dapat mulai mengedit halaman dengan memodifikasi file di folder `src/app/`.
 
 Lampirkan gambar screenshot hasil implementasi di bawah ini:
 
-![Supplier List](<img width="1920" height="999" alt="image_2025-09-18_10-53-53" src="https://github.com/user-attachments/assets/84aa2d62-59e7-4d18-9bf4-ebef8c16af6e" />)
-![Supplier Creation Dialog](<img width="1280" height="666" alt="image" src="https://github.com/user-attachments/assets/211e2bb8-022e-4ea3-9052-e8a03cd99c7c" />
-)
-![Supplier Detail](<img width="1280" height="666" alt="image" src="https://github.com/user-attachments/assets/b302ee2e-c520-4745-9990-ccbc455836e5" />
-)
+<img width="1920" height="999" alt="Supplier List" src="https://github.com/user-attachments/assets/84aa2d62-59e7-4d18-9bf4-ebef8c16af6e" />
+<img width="1280" height="666" alt="Supplier Creation Dialog" src="https://github.com/user-attachments/assets/211e2bb8-022e-4ea3-9052-e8a03cd99c7c" />
+<img width="1280" height="666" alt="Supplier Detail" src="https://github.com/user-attachments/assets/b302ee2e-c520-4745-9990-ccbc455836e5" />
 
 ## Teknologi
 - Next.js
