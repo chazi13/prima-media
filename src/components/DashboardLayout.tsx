@@ -95,7 +95,7 @@ export default function DashboardLayout({ children }: React.PropsWithChildren) {
         </div>
       </Sider>
       <Layout>
-        <Content className="x-4 mb-0 p-6">
+        <Content className="x-4 mb-0">
           <div
             className="min-h-[360px]"
             style={{

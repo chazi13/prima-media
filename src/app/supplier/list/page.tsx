@@ -156,75 +156,77 @@ export default function SupplierList() {
   };
 
   return (
-    <div className="p-6">
-      <div className="flex justify-between">
-        <h2 className="mb-4 text-lg font-semibold">Supplier List</h2>
-        <Button
-          type="primary"
-          icon={<FaRegPlusSquare />}
-          onClick={() => setOpenModal(true)}
-        >
-          New Supplier
-        </Button>
-      </div>
-      <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-4">
-        {stats.map((stat, i) => (
-          <StatCard
-            key={i}
-            title={stat.title}
-            value={stat.value}
-            icon={stat.icon}
-            footer={stat.footer}
-          />
-        ))}
-      </div>
-      <div className="mb-4 flex items-center justify-between gap-2">
-        <div className="flex flex-1 gap-2">
-          <Input.Search
-            placeholder="Search Customer"
-            style={{ maxWidth: 240 }}
-          />
-          <Select
-            defaultValue="Active"
-            style={{ width: 120 }}
-            options={[
-              { value: "Active", label: "Active" },
-              { value: "In Progress", label: "In Progress" },
-              { value: "Blocked", label: "Blocked" },
-            ]}
-          />
+    <div className="min-h-screen bg-gray-100">
+      <div className="p-6">
+        <div className="flex justify-between">
+          <h2 className="mb-4 text-lg font-semibold">Supplier List</h2>
+          <Button
+            type="primary"
+            icon={<FaRegPlusSquare />}
+            onClick={() => setOpenModal(true)}
+          >
+            New Supplier
+          </Button>
         </div>
-        <div className="flex gap-2">
-          <Button icon={<FaRegFileExcel />}>Export</Button>
-          <Radio.Group
-            defaultValue="table"
-            optionType="button"
-            buttonStyle="outline"
-            options={[
-              {
-                label: <BsGrid3X3Gap size={20} className="mt-1.25" />,
-                value: "grid",
-              },
-              {
-                label: <BsList size={20} className="mt-1.25" />,
-                value: "table",
-              },
-            ]}
-          />
+        <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-4">
+          {stats.map((stat, i) => (
+            <StatCard
+              key={i}
+              title={stat.title}
+              value={stat.value}
+              icon={stat.icon}
+              footer={stat.footer}
+            />
+          ))}
         </div>
+        <div className="mb-4 flex items-center justify-between gap-2">
+          <div className="flex flex-1 gap-2">
+            <Input.Search
+              placeholder="Search Customer"
+              style={{ maxWidth: 240 }}
+            />
+            <Select
+              defaultValue="Active"
+              style={{ width: 120 }}
+              options={[
+                { value: "Active", label: "Active" },
+                { value: "In Progress", label: "In Progress" },
+                { value: "Blocked", label: "Blocked" },
+              ]}
+            />
+          </div>
+          <div className="flex gap-2">
+            <Button icon={<FaRegFileExcel />}>Export</Button>
+            <Radio.Group
+              defaultValue="table"
+              optionType="button"
+              buttonStyle="outline"
+              options={[
+                {
+                  label: <BsGrid3X3Gap size={20} className="mt-1.25" />,
+                  value: "grid",
+                },
+                {
+                  label: <BsList size={20} className="mt-1.25" />,
+                  value: "table",
+                },
+              ]}
+            />
+          </div>
+        </div>
+        <Table
+          columns={columns}
+          dataSource={data}
+          pagination={false}
+          rowKey={(row) => row.id}
+          rowHoverable
+        />
+        <NewSupplierDialog
+          open={modalOpen}
+          onCancel={handleCloseModal}
+          onSave={handleCloseModal}
+        />
       </div>
-      <Table
-        columns={columns}
-        dataSource={data}
-        pagination={false}
-        rowKey={(row) => row.id}
-        rowHoverable
-      />
-      <NewSupplierDialog
-        open={modalOpen}
-        onCancel={handleCloseModal}
-        onSave={handleCloseModal}
-      />
     </div>
   );
 }
