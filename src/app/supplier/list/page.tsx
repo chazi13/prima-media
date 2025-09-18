@@ -9,6 +9,8 @@ import { MdDirectionsRun, MdPeople, MdTimer } from "react-icons/md";
 
 import { Supplier, SupplierStatus } from "@/types/supplier";
 
+import NewSupplierDialog from "./NewSupplierDialog";
+
 const stats = [
   {
     title: "Total Supplier",
@@ -147,11 +149,21 @@ function StatCard({
 }
 
 export default function SupplierList() {
+  const [modalOpen, setOpenModal] = React.useState(false);
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
+
   return (
     <div className="p-6">
       <div className="flex justify-between">
         <h2 className="mb-4 text-lg font-semibold">Supplier List</h2>
-        <Button type="primary" icon={<FaRegPlusSquare />}>
+        <Button
+          type="primary"
+          icon={<FaRegPlusSquare />}
+          onClick={() => setOpenModal(true)}
+        >
           New Supplier
         </Button>
       </div>
@@ -207,6 +219,11 @@ export default function SupplierList() {
         pagination={false}
         rowKey={(row) => row.id}
         rowHoverable
+      />
+      <NewSupplierDialog
+        open={modalOpen}
+        onCancel={handleCloseModal}
+        onSave={handleCloseModal}
       />
     </div>
   );
